@@ -1,7 +1,6 @@
 import { Library, Session } from 'botbuilder';
 import * as common from '../common';
 import { Strings } from '../consts';
-import { Place } from '../place';
 
 export function register(library: Library): void {
     library.dialog('choose-location-dialog', createDialog());
@@ -10,11 +9,11 @@ export function register(library: Library): void {
 function createDialog() {
     return common.createBaseDialog()
         .matches(/^other$/i, function (session: Session) {
-            session.endDialogWithResult({response: {place: new Place()}});
+            session.endDialogWithResult({ response: { reset: true } });
+            return;
         })
         .onBegin((session, args) => {
             session.dialogData.locations = args.locations;
-
             session.send(Strings.MultipleResultsFound).sendBatch();
         })
         .onDefault((session) => {
