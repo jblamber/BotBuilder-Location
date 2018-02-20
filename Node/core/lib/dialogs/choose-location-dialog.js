@@ -1,7 +1,7 @@
 "use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
 var common = require("../common");
 var consts_1 = require("../consts");
-var place_1 = require("../place");
 function register(library) {
     library.dialog('choose-location-dialog', createDialog());
 }
@@ -9,7 +9,8 @@ exports.register = register;
 function createDialog() {
     return common.createBaseDialog()
         .matches(/^other$/i, function (session) {
-        session.endDialogWithResult({ response: { place: new place_1.Place() } });
+        session.endDialogWithResult({ response: { reset: true } });
+        return;
     })
         .onBegin(function (session, args) {
         session.dialogData.locations = args.locations;

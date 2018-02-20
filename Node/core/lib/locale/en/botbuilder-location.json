@@ -38,6 +38,6 @@
     "SelectFavoriteLocationPrompt": "Type or say a number/name to use one of your favorite locations. Type or say 'other' to specify a different location. To edit or delete a favorite, type or say, 'edit' or 'delete' number/name.",
     "SingleResultFound": "I found this result. Is this the correct address?",
     "StreetAddress": "street address",
-    "TitleSuffix": " Type or say an address",
+    "TitleSuffix": " ",
     "TitleSuffixFacebook": " Tap 'Send Location' to choose an address."
 }

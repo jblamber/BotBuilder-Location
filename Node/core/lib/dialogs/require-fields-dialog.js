@@ -1,4 +1,5 @@
 "use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
 var common = require("../common");
 var consts_1 = require("../consts");
 var botbuilder_1 = require("botbuilder");
@@ -65,7 +66,8 @@ function createDialog() {
     });
 }
 function completeFieldIfMissing(session, field) {
-    if ((field.flag & session.dialogData.requiredFieldsFlag) && !session.dialogData.place.address[field.name]) {
+    if ((field.flag & session.dialogData.requiredFieldsFlag)
+        && (typeof session.dialogData.place.address === 'undefined' || !session.dialogData.place.address[field.name])) {
         var prefix = "";
         var prompt = "";
         if (typeof session.dialogData.lastInput === "undefined") {
